@@ -17,6 +17,8 @@ public class Bank {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bankId;
 
+    private String bankName;
+
     private Long loan;
 
     private Long installmentSavings;
