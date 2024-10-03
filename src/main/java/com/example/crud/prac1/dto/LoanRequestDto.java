@@ -1,5 +1,6 @@
 package com.example.crud.prac1.dto;
 
+import com.example.crud.prac1.domain.Customer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,11 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class LoanResponseDto {
+public class LoanRequestDto {
 
-    private String customerName;
+    private Customer customer;
 
     private String bankName;
-
-    private Long loan;
 }
