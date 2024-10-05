@@ -33,5 +33,4 @@ public class BankMapper {
                 .customerName(customer.getCustomerName())
                 .build();
     }
-
 }
