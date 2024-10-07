@@ -2,6 +2,7 @@ package com.example.crud.prac1.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.validation.annotation.Validated;
 
 @Entity
 @Getter
@@ -17,9 +18,9 @@ public class Bank {
 
     private String bankName;
 
-    private double loan;
+    private Double loan;
 
-    private double installmentSavings;
+    private Double installmentSavings;
 
     private String color;
 

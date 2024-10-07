@@ -27,6 +27,5 @@ public class Customer {
     private int password;
 
     @OneToMany(mappedBy = "customer")
-    @OrderBy("bankId ASC")
     private List<Bank> banks = new ArrayList<>();
 }
