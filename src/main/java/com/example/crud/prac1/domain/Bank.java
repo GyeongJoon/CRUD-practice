@@ -2,7 +2,6 @@ package com.example.crud.prac1.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.validation.annotation.Validated;
 
 @Entity
 @Getter
