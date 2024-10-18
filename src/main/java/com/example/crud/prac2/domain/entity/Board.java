@@ -1,5 +1,6 @@
 package com.example.crud.prac2.domain.entity;
 
+import com.example.crud.prac2.domain.dto.BoardRequestDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,6 +31,16 @@ public class Board extends BaseEntity{
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @OneToMany(mappedBy = "board")
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
+
+    // update 메소드
+    public void updateBoardInfo(BoardRequestDto boardRequestDto) {
+        if (boardRequestDto.getTitle() != null) {
+            this.title = boardRequestDto.getTitle();
+        }
+        if (boardRequestDto.getContent() != null) {
+            this.content = boardRequestDto.getContent();
+        }
+    }
 }
