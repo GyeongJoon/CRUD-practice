@@ -65,7 +65,7 @@ public class CommentService {
         Comment comment = commentRepository.findById(commentId)
                 .orElseThrow(() -> new appException(ErrorCode.COMMENT_NOT_FOUND));
 
-        if (member.getId().equals(comment.getMember().getId())){
+        if (!member.getId().equals(comment.getMember().getId())){
             throw new appException(ErrorCode.COMMENT_UPDATE_PERMISSION_DENIED);
         }
 
@@ -86,11 +86,22 @@ public class CommentService {
         Comment comment = commentRepository.findById(commentId)
                 .orElseThrow(() -> new appException(ErrorCode.COMMENT_NOT_FOUND));
 
-        if (member.getId().equals(comment.getMember().getId())){
+        if (!member.getId().equals(comment.getMember().getId())){
             throw new appException(ErrorCode.COMMENT_UPDATE_PERMISSION_DENIED);
         }
 
         commentRepository.delete(comment);
+    }
+
+    // 전체 댓글 조회(페이징 이용)
+    @Transactional(readOnly = true)
+    public Page<CommentResponseDto> getComments(Long boardId, int page, int size) {
+        boardRepository.findById(boardId)
+                .orElseThrow(() -> new appException(ErrorCode.BOARD_NOT_FOUND));
+
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Comment> allComments = commentRepository.findAllById(boardId, pageable);
+        return CommentMapper.toCommentDtoPage(allComments);
     }
 
     // 댓글 조회 (최신순)

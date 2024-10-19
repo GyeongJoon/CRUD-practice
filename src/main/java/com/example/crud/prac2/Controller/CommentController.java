@@ -53,8 +53,17 @@ public class CommentController {
         return ResponseEntity.ok("해당 댓글이 삭제되었습니다.");
     }
 
+    // 댓글 조회
+//    @GetMapping
+//    public ResponseEntity<Page<CommentResponseDto>> getCommentsCreateAt(@PathVariable Long boardId,
+//                                                                        @RequestParam int page,
+//                                                                        @RequestParam int size) {
+//        Page<CommentResponseDto> commentsCreateAt = commentService.getCommentsCreateAt(boardId, page, size);
+//        return ResponseEntity.ok(commentsCreateAt);
+//    }
+
     // 댓글 조회 (최신순)
-    @GetMapping("/createdAt")
+    @GetMapping("/createdAt") // ("/api/board/{boardId}/comment")
     public ResponseEntity<Page<CommentResponseDto>> getCommentsCreateAt(@PathVariable Long boardId,
                                                                         @RequestParam int page,
                                                                         @RequestParam int size) {

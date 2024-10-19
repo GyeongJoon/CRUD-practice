@@ -44,16 +44,16 @@ public class Member extends BaseEntity{
     // update 메소드
     public void updateMemberInfo(MemberRequestDto memberRequestDto) {
         if (memberRequestDto.getMemberName() != null) {
-            this.memberName = memberName;
+            this.memberName = memberRequestDto.getMemberName();
         }
         if (memberRequestDto.getEmail() != null) {
-            this.email = email;
+            this.email = memberRequestDto.getEmail();
         }
         if (memberRequestDto.getPassword() != null) {
-            this.password = password;
+            this.password = memberRequestDto.getPassword();
         }
         if (memberRequestDto.getDepartment() != null) {
-            this.department = department;
+            this.department = memberRequestDto.getDepartment();
         }
     }
 }

@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
+    Page<Comment> findAllById(Long boardId, Pageable pageable);
+
     // 최신순(작성시간으로 내림차순)
     @Query("SELECT c FROM Comment c WHERE c.board.id = :boardId ORDER BY c.createdAt DESC")
     Page<Comment> findAllByOrderByCreatedAtDesc(@Param("boardId") Long boardId, Pageable pageable);
