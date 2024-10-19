@@ -36,6 +36,12 @@ public class CommentMapper {
                 .collect(Collectors.toList());
     }
 
+    public static List<CommentResponseDto> toCommentAllDtos(List<Comment> comments) {
+        return comments.stream()
+                .map(CommentMapper::toCommentDto)
+                .collect(Collectors.toList());
+    }
+
     // Entity -> Dto
     public static CommentResponseDto toCommentDto(Comment comment) {
         return CommentResponseDto.builder()

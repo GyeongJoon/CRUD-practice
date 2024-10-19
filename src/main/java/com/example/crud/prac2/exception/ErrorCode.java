@@ -13,7 +13,8 @@ public enum ErrorCode {
     BOARD_DELETE_PERMISSION_DENIED("해당 게시물 삭제 권한이 없습니다.", "B4"),
     COMMENT_NOT_FOUND("댓글이 존재하지 않습니다.", "C1"),
     COMMENT_ALREADY_EXISTS("댓글이 이미 존재합니다.", "C2"),
-    COMMENT_UPDATE_PERMISSION_DENIED("해당 댓글 수정 권한이 없습니다.", "C3");
+    COMMENT_UPDATE_PERMISSION_DENIED("해당 댓글 수정 권한이 없습니다.", "C3"),
+    INVALID_DEPARTMENT_NAME("잘못된 부서 이름입니다.", "D1");
 
     private final String description;
     private final String id;

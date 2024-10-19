@@ -1,6 +1,6 @@
 package com.example.crud.prac2.domain.dto;
 
-import com.example.crud.prac2.domain.entity.Department;
+import com.example.crud.prac2.domain.enums.Department;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

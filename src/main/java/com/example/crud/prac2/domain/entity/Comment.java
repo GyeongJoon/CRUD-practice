@@ -1,5 +1,6 @@
 package com.example.crud.prac2.domain.entity;
 
+import com.example.crud.prac2.domain.dto.CommentRequestDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,4 +28,11 @@ public class Comment extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "board_id")
     private Board board;
+
+    // update 메서드
+    public void updateCommentInfo(CommentRequestDto commentRequestDto) {
+        if (commentRequestDto.getContent() != null) {
+            this.content = commentRequestDto.getContent();
+        }
+    }
 }

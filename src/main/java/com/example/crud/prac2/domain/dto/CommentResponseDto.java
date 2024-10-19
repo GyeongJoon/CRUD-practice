@@ -19,6 +19,8 @@ public class CommentResponseDto {
 
     private String authorName;
 
+    private String department;
+
     private LocalDateTime createAt;
     
     private LocalDateTime updateAt;
