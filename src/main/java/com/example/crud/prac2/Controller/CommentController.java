@@ -54,13 +54,13 @@ public class CommentController {
     }
 
     // 댓글 조회
-//    @GetMapping
-//    public ResponseEntity<Page<CommentResponseDto>> getCommentsCreateAt(@PathVariable Long boardId,
-//                                                                        @RequestParam int page,
-//                                                                        @RequestParam int size) {
-//        Page<CommentResponseDto> commentsCreateAt = commentService.getCommentsCreateAt(boardId, page, size);
-//        return ResponseEntity.ok(commentsCreateAt);
-//    }
+    @GetMapping("/asdf")
+    public ResponseEntity<Page<CommentResponseDto>> getCommentsCreateAts(@PathVariable Long boardId,
+                                                                        @RequestParam int page,
+                                                                        @RequestParam int size) {
+        Page<CommentResponseDto> commentsCreateAt = commentService.getComments(boardId, page, size);
+        return ResponseEntity.ok(commentsCreateAt);
+    }
 
     // 댓글 조회 (최신순)
     @GetMapping("/createdAt") // ("/api/board/{boardId}/comment")

@@ -100,7 +100,7 @@ public class CommentService {
                 .orElseThrow(() -> new appException(ErrorCode.BOARD_NOT_FOUND));
 
         Pageable pageable = PageRequest.of(page, size);
-        Page<Comment> allComments = commentRepository.findAllById(boardId, pageable);
+        Page<Comment> allComments = commentRepository.findByBoard_Id(boardId, pageable);
         return CommentMapper.toCommentDtoPage(allComments);
     }
 
@@ -112,7 +112,7 @@ public class CommentService {
 
 
         Pageable pageable = PageRequest.of(page, size);
-        Page<Comment> allByOrderByCreatedAtDesc = commentRepository.findAllByOrderByCreatedAtDesc(boardId, pageable);
+        Page<Comment> allByOrderByCreatedAtDesc = commentRepository.findByBoard_IdOrderByCreatedAtDesc(boardId, pageable);
         return CommentMapper.toCommentDtoPage(allByOrderByCreatedAtDesc);
     }
 
@@ -127,7 +127,7 @@ public class CommentService {
         }
 
         Pageable pageable = PageRequest.of(page, size);
-        Page<Comment> allByDepartmentOrderByCreatedAtDesc = commentRepository.findAllByMember_DepartmentOrderByCreatedAtDesc(boardId, department, pageable);
+        Page<Comment> allByDepartmentOrderByCreatedAtDesc = commentRepository.findByBoard_IdAndMember_DepartmentOrderByCreatedAtDesc(boardId, department, pageable);
         return CommentMapper.toCommentDtoPage(allByDepartmentOrderByCreatedAtDesc);
     }
 
